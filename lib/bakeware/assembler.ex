@@ -67,7 +67,7 @@ defmodule Bakeware.Assembler do
   end
 
   defp build_cpio(assembler) do
-    maybe_zstd = if assembler.compress?, do: '| zstd -15 -'
+    maybe_zstd = if assembler.compress?, do: '| zstd -15 - --threads=0'
 
     _ =
       :os.cmd(
